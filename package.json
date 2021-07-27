@@ -1,0 +1,26 @@
+{
+  "name": "project-3",
+  "version": "1.0.0",
+  "description": "Projects have played a key role in your journey to becoming a full-stack web developer. As you apply for development jobs, your portfolio is absolutely vital to opening doors to opportunities. Your portfolio showcases high-quality deployed examples of your work, and you can use your finished projects for that very purpose.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camball96/project-3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camball96/project-3/issues"
+  },
+  "homepage": "https://github.com/camball96/project-3#readme",
+  "dependencies": {
+    "apollo-server": "^3.0.2",
+    "graphql": "^15.5.1",
+    "mongoose": "^5.13.3",
+    "nodemon": "^2.0.12"
+  }
+}
