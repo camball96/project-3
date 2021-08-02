@@ -1,43 +1,24 @@
 const { ApolloServer } = require('apollo-server');
-const gql = require('graphql-tag');
 const mongoose = require('mongoose');
+const { ApolloServerPluginLandingPageGraphQLPlayground } = require("apollo-server-core");
 
-
+const typeDefs = require('./graphql/typeDefs')
 const { MONGODB } = require('./config');
-const Post = require('./models/Post')
+const resolvers = require('./graphql/resolvers')
 
 
-const typeDefs =  gql `
-    type Posts{
-        id: ID!
-        body: String!
-        createdAt: String!
-        username: String!
-    }
-
-    type Query{
-        getPosts: [Posts]
-    }
-`
-
-const resolvers = {
-    Query: {
-       async getPosts(){
-            try{
-                const posts = await Post.find();
-                return posts;
-            } catch(err){
-                throw new Error(err);
-            }
-       }
-    }
-};
-
+// Setting up Apollo
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+    context: ({ req }) => ({ req }),
+    plugins: [
+        ApolloServerPluginLandingPageGraphQLPlayground(),
+    ],
 });
 
+
+//Connects to our Mongo AtlasDB
 mongoose.connect(MONGODB, {useNewUrlParser:true })
     .then(() => {
         console.log('mongodb connected');
