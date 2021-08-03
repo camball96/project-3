@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import apollo from './apollo';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(apollo, document.getElementById('root'));
 
 
 // If you want to start measuring performance in your app, pass a function
