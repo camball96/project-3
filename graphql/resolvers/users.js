@@ -44,9 +44,9 @@ module.exports = {
         { 
             registerInput: { 
             username, 
+            email,
             password, 
-            confirmPassword, 
-            email
+            confirmPassword
             }
         }, 
         ){

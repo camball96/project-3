@@ -8,6 +8,7 @@ import Register from './Pages/register';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import { Container } from 'semantic-ui-react';
+import { ApolloProvider } from '@apollo/client';
 
 function App() {
   return (
