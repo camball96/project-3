@@ -1,12 +1,69 @@
-import React from 'react';
+import React, { useState, useContext } from 'react'
 import { Button, Checkbox, Container, Form, Grid, Dropdown, Menu } from 'semantic-ui-react'
-
-function submit(){
-    console.log("Submitted");
-};
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/client';
 
 
-function Login() {
+
+function Login(props) {
+    const [values, setValues] = useState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    });
+
+    const onChange = (event) => {
+        setValues({...values, [event.target.name]: event.target.value});
+    }
+    
+
+
+    const [loginUser, { loading }] = useMutation(LOGIN, {
+        update: (mutationResult) => {
+            console.log('mutationResult: ', mutationResult);
+            props.history.push('/');
+        },
+        variables: values
+    });
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        loginUser();
+    };
+
+
+//Maybe add a 'remember me' button to make it easier for logging in
+    return (
+        <div>
+            <Form onSubmit={onSubmit} noValidate>
+                <h1>Login and see whats new?</h1>
+                <Form.Input label='Enter Username' type='text' name='username' value={values.username} onChange={onChange}/>
+                <Form.Input label='Enter Password' type='password' name='password' value={values.password} onChange={onChange}/>
+                
+                <Button type='submit' content='Register!' />
+            </Form>
+        </div>
+    )
+}
+
+const LOGIN = gql`
+    mutation login($username: String!, $password: String!) {
+    login(username: $username, password: $password)
+    {
+        id
+        email
+        createdAt 
+        username
+        token
+    }
+    }
+`;
+
+export default Login;
+
+
+/*function Login() {
     return (
         <div>
             <h1>Log in and see what's new!?</h1>
@@ -49,4 +106,4 @@ function Login() {
 }
 
 
-export default Login;
+export default Login */

@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client';
 
 
 // Make checkbox agreement save on db?
-function NewRegister() {
+function NewRegister(props) {
     const [values, setValues] = useState({
         username: '',
         email: '',
@@ -17,17 +17,18 @@ function NewRegister() {
         setValues({...values, [event.target.name]: event.target.value});
     }
     
-    
-    /*const [addUser, { loading }] = useMutation(NEW_REGISTER, {
+        /*const [addUser, { loading }] = useMutation(NEW_REGISTER, {
         update(proxy, result){
             console.log(result);
         },
         variables: values
     });*/
 
+
     const [addUser, { loading }] = useMutation(NEW_REGISTER, {
-        update: (proxy, mutationResult) => {
+        update: (mutationResult) => {
             console.log('mutationResult: ', mutationResult);
+            props.history.push('/');
         },
         variables: values
     });
@@ -44,9 +45,9 @@ function NewRegister() {
             <Form onSubmit={onSubmit} noValidate>
                 <h1>Ready to sign up?</h1>
                 <Form.Input label='Enter Username' type='text' name='username' value={values.username} onChange={onChange}/>
-                <Form.Input label='Enter Password' type='password' value={values.password} onChange={onChange}/>
-                <Form.Input label='Confirm Password' type='password' value={values.confirmPassword} onChange={onChange} />
-                <Form.Input label='Enter Email' type='text' value={values.email} onChange={onChange} />
+                <Form.Input label='Enter Password' type='password' name='password' value={values.password} onChange={onChange}/>
+                <Form.Input label='Confirm Password' type='password' name='confirmPassword' value={values.confirmPassword} onChange={onChange} />
+                <Form.Input label='Enter Email' type='text' name='email' value={values.email} onChange={onChange} />
                 <Form.Checkbox label='I agree to the Terms and Conditions' type='checkbox' name='checkbox'/>
                 <Button type='submit' content='Register!' />
             </Form>
@@ -80,3 +81,4 @@ const NEW_REGISTER = gql`
 `
 
 export default NewRegister;
+
