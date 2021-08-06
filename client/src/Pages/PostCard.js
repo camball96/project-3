@@ -1,4 +1,3 @@
-import { func } from "prop-types";
 import React from 'react';
 import { Label, Card, Icon, Image, Button } from "semantic-ui-react";
 import moment from 'moment';

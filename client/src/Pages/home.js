@@ -4,7 +4,7 @@ import gql from "graphql-tag";
 import { Grid } from 'semantic-ui-react'
 
 import PostCard from '../Pages/PostCard'
-
+import NewCard from '../Pages/NewPost'
 
 function Home() {
     const { loading, data: { getPosts: posts } = {} } = useQuery(FETCH_POSTS)
@@ -13,6 +13,9 @@ function Home() {
             <Grid columns={3}>
                 <Grid.Row>
                     <h1>New Posts</h1>
+                </Grid.Row>
+                <Grid.Row style= {{marginLeft: 15, marginRight: 15}}>
+                    <NewCard/>
                 </Grid.Row>
                 <Grid.Row>
                     {loading ? (
