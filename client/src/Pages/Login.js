@@ -5,6 +5,8 @@ import { useMutation } from '@apollo/client';
 
 
 
+
+
 function Login(props) {
     const [values, setValues] = useState({
         username: '',
@@ -22,7 +24,7 @@ function Login(props) {
     const [loginUser, { loading }] = useMutation(LOGIN, {
         update: (mutationResult) => {
             console.log('mutationResult: ', mutationResult);
-            props.history.push('/');
+            props.history.push('/home');
         },
         variables: values
     });
@@ -41,7 +43,8 @@ function Login(props) {
                 <Form.Input label='Enter Username' type='text' name='username' value={values.username} onChange={onChange}/>
                 <Form.Input label='Enter Password' type='password' name='password' value={values.password} onChange={onChange}/>
                 
-                <Button type='submit' content='Register!' />
+                <Button type='submit' content='Login' />
+                <Button type='submit' content='Not Registered? Sign up here' href='/register' />
             </Form>
         </div>
     )

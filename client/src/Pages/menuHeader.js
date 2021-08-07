@@ -15,13 +15,13 @@ function MenuHeader() {
     
     return (
 
-        <Menu pointing secondary size='huge' color='blue'> 
+        <Menu pointing secondary size='huge' color='blue'>
             <Menu.Item
             name='home'
             active={activeItem === 'home'}
             onClick={handleItemClick}
             as={Link}
-            to="/"
+            to="/home"
             />
 
             <Menu.Item
