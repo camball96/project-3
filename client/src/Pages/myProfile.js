@@ -1,18 +1,37 @@
-import React from "react";
+import React, {Component} from "react";
 import { useQuery } from '@apollo/client';
 import gql from "graphql-tag";
-import { Grid } from 'semantic-ui-react'
-
+import { Grid, Message } from 'semantic-ui-react'
+import logo from '../Assets/logo.png'
 import PostCard from '../Pages/PostCard'
 
 
 function MyProfile() {
     const { loading, data: { getPosts: posts } = {} } = useQuery(FETCH_POSTS)
     
+    const handleDismiss = () => {
+        this.setState({ visible: false });
+    }
+    
     return (
+        <div style={{
+            marginTop:-12,
+            padding:100,
+            backgroundColor: '#0c4169'}}>
             <Grid columns={3}>
                 <Grid.Row>
-                    <h1>Your Posts</h1>
+                    <img src={logo} style={{height:300, paddingLeft:600}}/>
+                </Grid.Row>
+                <Grid.Row>
+                    <Message
+                        onDismiss={handleDismiss}
+                        header='Welcome back!'
+                        content='Here you can find your post history, the likes on them and see the comments left!'
+                        style={{
+                            width:1000,
+                            marginLeft:300,
+                        }}
+                    />
                 </Grid.Row>
                 <Grid.Row>
                     {loading ? (
@@ -26,8 +45,9 @@ function MyProfile() {
                     )}
                 </Grid.Row>
             </Grid>
-    );
-}
+        </div>
+    )
+};
 
 
 

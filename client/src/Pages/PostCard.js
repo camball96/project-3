@@ -17,15 +17,15 @@ function PostCard({ post: { body, id, username, likeCount, likes, commentCount, 
 
     return(
         <Card fluid>
-            <Card.Content style={{padding: 30}}>
+            <Card.Content style={{padding: 30, fontSize:20}}>
                 <Image
-                floated='right'
+                floated='center'
                 size='medium'
                 src='https://react.semantic-ui.com/images/avatar/large/molly.png'
                 />
                 <Card.Header>{username}</Card.Header>
                 <Card.Meta>{moment(createdAt).fromNow()}</Card.Meta>
-                <Card.Description>{body}</Card.Description>
+                <Card.Description style={{fontSize:20}}>{body}</Card.Description>
             </Card.Content>
             <Card.Content extra>
                 <Button as='div' labelPosition='right' onClick={likePost}>

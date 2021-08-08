@@ -22,11 +22,10 @@ function App() {
       <Route exact path='/landingpage' component={LandingPage}/>
       <Route exact path='/login' component={Login}/>
       <Route exact path='/register' component={Register}/>
+      
       <MenuHeader/>
-      <Container>
       <Route exact path='/myprofile' component={MyProfile}/>
       <Route exact path='/home' component={Home}/>
-      </Container>
     </Router>
     </AuthProv>
     

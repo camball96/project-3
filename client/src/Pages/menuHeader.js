@@ -16,7 +16,9 @@ function MenuHeader() {
     return (
 
         <Menu pointing secondary size='huge' color='blue'>
-            <img src={logo} style={{width:200, marginBottom:-40}}/>
+            <a href='/home'>
+                <img src={logo} style={{width:200, marginBottom:-40}}/>
+            </a>
             <Menu.Item
             name='home'
             active={activeItem === 'home'}
