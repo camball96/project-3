@@ -67,14 +67,14 @@ function NewRegister(props) {
                             <Form.Input label='Confirm Password' type='password' name='confirmPassword' placeholder='confirm password..' value={values.confirmPassword} onChange={onChange} />
                             <Form.Input label='Enter Email' type='text' name='email' placeholder='your email..' value={values.email} onChange={onChange} />
                             <Form.Checkbox label='I agree to the Terms and Conditions' type='checkbox' name='checkbox'/>
-                            <Button type='submit' content='Register!' />
+                            <Button type='submit' content='Register!' style={{marginBottom:10}} />
                             <Button type='submit' content='Already a member? Login here!' href='/login'/>
 
                             <Menu secondary style={{
                                 marginTop:0,
                                 padding: 50,
                                 backgroundColor: 'white',
-                                fontSize:20,
+                                fontSize:15,
                                 justifyContent: 'center'
                                 }} >
                                 <Menu.Item

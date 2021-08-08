@@ -6,7 +6,7 @@ import '../App.css'
 import logo from '../Assets/olmate.png'
 
 
-import Login from '../Pages/login'
+import Login from '../Pages/Login'
 import Register from '../Pages/register'
 
 

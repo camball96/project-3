@@ -64,14 +64,14 @@ function Login(props) {
                             <Form.Input label='Enter Username' type='text' name='username' value={values.username} onChange={onChange}/>
                             <Form.Input label='Enter Password' type='password' name='password' value={values.password} onChange={onChange}/>
                             
-                            <Button type='submit' content='Login' />
+                            <Button type='submit' content='Login' style={{marginBottom:10}}/>
                             <Button type='submit' content='Not Registered? Sign up here' href='/register' />
 
                             <Menu secondary style={{
                                 marginTop:0,
                                 padding: 50,
                                 backgroundColor: 'white',
-                                fontSize:20,
+                                fontSize:15,
                                 justifyContent: 'center'
                                 }} >
                                 <Menu.Item

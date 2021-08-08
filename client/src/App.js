@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import MenuHeader from './Pages/menuHeader';
-import Login from './Pages/login';
+import Login from './Pages/Login';
 import Home from './Pages/home';
 import Register from './Pages/register';
 import LandingPage from './Pages/LandingPage';
@@ -22,7 +22,6 @@ function App() {
       <Route exact path='/landingpage' component={LandingPage}/>
       <Route exact path='/login' component={Login}/>
       <Route exact path='/register' component={Register}/>
-      
       <MenuHeader/>
       <Route exact path='/myprofile' component={MyProfile}/>
       <Route exact path='/home' component={Home}/>

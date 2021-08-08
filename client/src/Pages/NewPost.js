@@ -40,15 +40,10 @@ function NewPost(props){
 // see if we can do an If statement on icon. IF comments === >0 have multi icon show
 
     return(
-        <Grid divided='vertically' style={{marginLeft:0}}>
+        <Grid divided='vertically' style={{marginLeft:0, fontSize:20}}>
             <Grid.Row columns={10}>
                         <Card fluid>
                         <Card.Content style={{padding: 30}}>
-                            <Image
-                            floated='right'
-                            size='medium'
-                            src='https://react.semantic-ui.com/images/avatar/large/molly.png'
-                            />
                             <Card.Header>Hi User!</Card.Header>
                             <Card.Meta></Card.Meta>
                             <Card.Description>  

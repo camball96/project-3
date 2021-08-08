@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import { Grid } from 'semantic-ui-react'
 import logo from '../Assets/logo.png'
 
+import MenuHeader from './menuHeader'
 import PostCard from '../Pages/PostCard'
 import NewCard from '../Pages/NewPost'
 
@@ -15,6 +16,7 @@ function Home() {
             marginTop:-12,
             padding:100,
             backgroundColor: '#0c4169'}}>
+            
 
             <Grid columns={1}>
                 <Grid.Column >
@@ -22,9 +24,7 @@ function Home() {
                     <img src={logo} style={{width:1200, paddingLeft:400}}/>
                     </Grid.Row>
                 </Grid.Column>
-                <Grid.Row>
-                    <h1>New Posts</h1>
-                </Grid.Row>
+                
                 <Grid.Row style= {{marginLeft: 15, marginRight: 15}}>
                     <Grid.Column>
                         <NewCard/>
