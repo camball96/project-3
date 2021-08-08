@@ -4,40 +4,40 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import logo from '../Assets/logo.png'
 import { AuthContext } from '../module/AuthFile'
+import { useForm } from '../module/hooks'
 
 
 
 
 
 function Login(props) {
-    const context = useContext(AuthContext)
-    const [values, setValues] = useState({
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
+    const context = useContext(AuthContext);
+    const [errors, setErrors] = useState({});
+
+    const { onChange, onSubmit, values } = useForm(loginUserCallback, {
+    username: '',
+    password: ''
     });
-
-    const onChange = (event) => {
-        setValues({...values, [event.target.name]: event.target.value});
-    }
-    
-
 
     const [loginUser, { loading }] = useMutation(LOGIN, {
-        update: (mutationResult) => {
-            console.log('mutationResult: ', mutationResult);
-            context.login(mutationResult.data.login)
-            props.history.push('/home');
-        },
-        variables: values
+    update(
+        _,
+        {
+        data: { login: userData }
+        }
+    ) {
+        context.login(userData);
+        props.history.push('/home');
+    },
+    onError(err) {
+        setErrors(err.graphQLErrors[0].extensions.exception.errors);
+    },
+    variables: values
     });
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        loginUser();
-    };
-
+    function loginUserCallback() {
+    loginUser();
+    }
 
 //Maybe add a 'remember me' button to make it easier for logging in
     return (
@@ -45,12 +45,14 @@ function Login(props) {
                 height:900,
                 marginTop:-13,
                 padding:100,
+                paddingLeft:200,
+                paddingRight:200,
                 backgroundColor: '#0c4169'}}>
             
             <Grid fluid>
                 <Grid.Row>
                     <Grid.Column width={10}>
-                        <img src={logo}  height="400"/>
+                        <img src={logo}  height="500"/>
                     </Grid.Column>
                     <Grid.Column width={5}>
                         <Form onSubmit={onSubmit} noValidate style={{
@@ -161,3 +163,31 @@ export default Login;
 
 
 export default Login */
+
+/*(function Login(props) {
+    const context = useContext(AuthContext)
+    const [values, setValues] = useState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    });
+
+    const onChange = (event) => {
+        setValues({...values, [event.target.name]: event.target.value});
+    }
+    
+
+
+    const [loginUser, { loading }] = useMutation(LOGIN, {
+        update(_,{data: { login: userData }}) {
+            context.login(userData);
+            props.history.push('/home');
+        },
+        variables: values
+    });
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        loginUser();
+    }; */

@@ -10,13 +10,13 @@ import MyProfile from './Pages/myProfile';
 
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
-import { AuthProv } from './module/AuthFile';
+import { AuthProvider } from './module/AuthFile';
 import { Container } from 'semantic-ui-react';
 import { ApolloProvider } from '@apollo/client';
 
 function App() {
   return (
-    <AuthProv>
+    <AuthProvider>
       <Router>
       <Route exact path='/' component={Login}/>
       <Route exact path='/landingpage' component={LandingPage}/>
@@ -26,7 +26,7 @@ function App() {
       <Route exact path='/myprofile' component={MyProfile}/>
       <Route exact path='/home' component={Home}/>
     </Router>
-    </AuthProv>
+    </AuthProvider>
     
   );
 }

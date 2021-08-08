@@ -23,7 +23,7 @@ function authReducer(state, action){
     }
 }
 
-function AuthProv(props){
+function AuthProvider(props){
     const [state, dispatch] = useReducer(authReducer,{user:null});
 
     function login(data){
@@ -45,4 +45,4 @@ function AuthProv(props){
     )
 }
 
-export { AuthContext, AuthProv };
+export { AuthContext, AuthProvider };

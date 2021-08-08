@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useQuery } from '@apollo/client';
 import gql from "graphql-tag";
 import { Grid } from 'semantic-ui-react'
 import logo from '../Assets/logo.png'
 
+import { AuthContext } from "../module/AuthFile";
 import MenuHeader from './menuHeader'
 import PostCard from '../Pages/PostCard'
 import NewCard from '../Pages/NewPost'

@@ -3,33 +3,25 @@ import { Label, Card, Icon, Image, Button, Form, Grid } from "semantic-ui-react"
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { AuthContext } from '../module/AuthFile';
+import { useForm } from '../module/hooks'
 
 
 function NewPost(props){
-    const context = useContext(AuthContext)
-    const [values, setValues] = useState({
-        id:'',
+    const { values, onChange, onSubmit } = useForm(createPostCallback, {
         body: ''
     });
+    
 
-    const onChange = (event) => {
-        setValues({...values, [event.target.name]: event.target.value});
-    }
+
 
     const [createPost, { loading }] = useMutation(NEW_POST, {
-        update: (mutationResult) => {
-            console.log('mutationResult: ', mutationResult);
-            context.login(mutationResult.data.login)
-            props.history.push('/home');
+            variables: values,
+            update(_, result) {
+                values.body = ''
+            }
         },
-        variables: values
-    });
-
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-        createPost();
-    };
+        
+    );
 
     function createPostCallback() {
         createPost();
