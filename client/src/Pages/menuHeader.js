@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-
+import logo from '../Assets/olmate.png'
 
 
 //Sourced Menu from semantic ui
@@ -16,6 +16,7 @@ function MenuHeader() {
     return (
 
         <Menu pointing secondary size='huge' color='blue'>
+            <img src={logo} style={{width:200, marginBottom:-40}}/>
             <Menu.Item
             name='home'
             active={activeItem === 'home'}
@@ -32,18 +33,18 @@ function MenuHeader() {
             <Menu.Menu position='right'> 
             
             <Menu.Item
-            name='login'
+            name='logout'
             active={activeItem === 'login'}
             onClick={handleItemClick}
             as={Link}
             to="/login"
             />
             <Menu.Item
-            name='register'
-            active={activeItem === 'register'}
+            name='My Profile'
+            active={activeItem === 'myProfile'}
             onClick={handleItemClick}
             as={Link}
-            to="/register"
+            to="/myprofile"
             />
             
             </Menu.Menu>
