@@ -7,28 +7,27 @@ import { useForm } from '../module/hooks'
 
 
 function NewPost(props){
-    const { values, onChange, onSubmit } = useForm(createPostCallback, {
-        body: ''
+    const [values, setValues] = useState({
+        body:''
     });
     
-
+    const onChange = (event) => {
+        setValues({...values, [event.target.name]: event.target.value});
+    }
 
 
     const [createPost, { loading }] = useMutation(NEW_POST, {
-            variables: values,
-            update(_, result) {
-                values.body = ''
-            }
+        update: () => {
+            props.history.push('/home');
         },
-        
-    );
+        variables: values
+    });
 
-    function createPostCallback() {
+    const onSubmit = (event) => {
+        event.preventDefault();
         createPost();
-    }
+    };
 
-    //const postId = props.match.params.postId;
-    //const { user } = useContext(AuthContext);
 // see if we can do an If statement on icon. IF comments === >0 have multi icon show
 
     return(
@@ -59,18 +58,18 @@ function NewPost(props){
 const NEW_POST = gql`
     mutation createPost($body: String!) {
         createPost(body: $body) {
-            id
+            
             body
             createdAt
             username
             likes {
-                id
+                
                 username
                 createdAt
             }
             likeCount
             comments {
-                    id
+                    
                     body
                     username
                     createdAt

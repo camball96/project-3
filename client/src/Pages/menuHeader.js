@@ -54,11 +54,4 @@ function MenuHeader() {
     )
     }
     
-    //logout item for menu might use later
-    /*<Menu.Item
-        name='logout'
-        active={activeItem === 'logout'}
-        onClick={handleItemClick}
-        />*/
-
     export default MenuHeader;

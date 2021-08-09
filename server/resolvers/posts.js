@@ -27,8 +27,6 @@ module.exports = {
     },
     Mutation: {
         async createPost(_, { body }, context){
-            const user = checkAuth(context);
-
             const newPost = new Post({
                 body,
                 user: user.id,
@@ -40,21 +38,7 @@ module.exports = {
 
             return post;
         },
-        async deletePost(_, { postId }, context){
-            const user = checkAuth(context);
-
-            try{
-                const post = await Post.findById(postId);
-                if(user.username === post.username){
-                    await post.delete();
-                    return 'Post deleted!';
-                }else {
-                    throw new AuthenticationError('Not allowed to do this action');
-                }
-            }catch(err){
-                throw new Error(err);
-            }
-        },
+    
         async likePost(_,{ postId}, context){
             const { username } = checkAuth(context);
 

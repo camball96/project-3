@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import { Grid, Message } from 'semantic-ui-react'
 import logo from '../Assets/logo.png'
 import PostCard from '../Pages/PostCard'
+import MenuHeader from "./menuHeader";
 
 
 function MyProfile() {
@@ -14,11 +15,12 @@ function MyProfile() {
     }
     
     return (
-        <div style={{
+        <div >
+            <MenuHeader/>
+            <Grid columns={3} style={{
             marginTop:-12,
             padding:100,
             backgroundColor: '#0c4169'}}>
-            <Grid columns={3}>
                 <Grid.Row>
                     <img src={logo} style={{height:300, paddingLeft:600}}/>
                 </Grid.Row>

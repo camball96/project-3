@@ -18,13 +18,12 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-      <Route exact path='/' component={Login}/>
-      <Route exact path='/landingpage' component={LandingPage}/>
-      <Route exact path='/login' component={Login}/>
-      <Route exact path='/register' component={Register}/>
-      <MenuHeader/>
-      <Route exact path='/myprofile' component={MyProfile}/>
-      <Route exact path='/home' component={Home}/>
+        <Route exact path='/' component={Login}/>
+        <Route exact path='/landingpage' component={LandingPage}/>
+        <Route exact path='/login' component={Login}/>
+        <Route exact path='/register' component={Register}/>
+        <Route exact path='/myprofile' component={MyProfile}/>
+        <Route exact path='/home' component={Home}/>
     </Router>
     </AuthProvider>
     

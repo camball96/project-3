@@ -19,12 +19,6 @@ function NewRegister(props) {
         setValues({...values, [event.target.name]: event.target.value});
     }
     
-        /*const [addUser, { loading }] = useMutation(NEW_REGISTER, {
-        update(proxy, result){
-            console.log(result);
-        },
-        variables: values
-    });*/
 
 
     const [addUser, { loading }] = useMutation(NEW_REGISTER, {
@@ -63,9 +57,10 @@ function NewRegister(props) {
                             }}>
                             <h1>Ready to sign up?</h1>
                             <Form.Input label='Enter Username' type='text' name='username' placeholder='username..' value={values.username} onChange={onChange}/>
+                            <Form.Input label='Enter Email' type='text' name='email' placeholder='your email..' value={values.email} onChange={onChange} />
                             <Form.Input label='Enter Password' type='password' name='password' placeholder='password..' value={values.password} onChange={onChange}/>
                             <Form.Input label='Confirm Password' type='password' name='confirmPassword' placeholder='confirm password..' value={values.confirmPassword} onChange={onChange} />
-                            <Form.Input label='Enter Email' type='text' name='email' placeholder='your email..' value={values.email} onChange={onChange} />
+                            
                             <Form.Checkbox label='I agree to the Terms and Conditions' type='checkbox' name='checkbox'/>
                             <Button type='submit' content='Register!' style={{marginBottom:10}} />
                             <Button type='submit' content='Already a member? Login here!' href='/login'/>
