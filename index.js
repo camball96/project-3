@@ -2,9 +2,9 @@ const { ApolloServer } = require('apollo-server');
 const mongoose = require('mongoose');
 const { ApolloServerPluginLandingPageGraphQLPlayground } = require("apollo-server-core");
 
-const typeDefs = require('./graphql/typeDefs')
+const typeDefs = require('./server/typeDefs')
 const { MONGODB } = require('./config');
-const resolvers = require('./graphql/resolvers')
+const resolvers = require('./server/resolvers')
 
 
 // Setting up Apollo

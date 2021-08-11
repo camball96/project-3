@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Input, Label, Menu } from 'semantic-ui-react'
 
 //export default class MenuExampleVertical extends Component {

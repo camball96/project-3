@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import { useQuery } from '@apollo/client';
 import gql from "graphql-tag";
 import { Grid, Message } from 'semantic-ui-react'

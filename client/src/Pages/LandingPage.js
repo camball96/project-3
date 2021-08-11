@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react'
-import { useQuery, useMutation } from '@apollo/client';
-import gql from "graphql-tag";
-import { Grid, Image } from 'semantic-ui-react'
+//import { useQuery, useMutation } from '@apollo/client';
+//import gql from "graphql-tag";
+import { Grid } from 'semantic-ui-react'
 import '../App.css'
 import logo from '../Assets/olmate.png'
 
 
 import Login from '../Pages/Login'
-import Register from '../Pages/register'
+//import Register from '../Pages/register'
 
 
 

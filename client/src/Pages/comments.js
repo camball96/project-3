@@ -50,4 +50,4 @@ const FETCH_COMMENTS = gql`
     }
 `;
 
-export default Home;
+export default Comments;

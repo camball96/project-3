@@ -12,6 +12,7 @@ module.exports = {
                 throw new Error(err);
             }
             },
+
             async getPost(_, { postId }) {
             try {
                 const post = await Post.findById(postId);
@@ -50,7 +51,6 @@ module.exports = {
                     post.likes = post.likes.filter(like => like.username != username);
 
                 }else {
-                    //not liked? then like the post!
                     post.likes.push({
                         username,
                         createdAt: new Date().toISOString()

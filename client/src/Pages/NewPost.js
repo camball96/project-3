@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'
-import { Label, Card, Icon, Image, Button, Form, Grid } from "semantic-ui-react";
+import { Card, Button, Form, Grid } from "semantic-ui-react";
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
-import { AuthContext } from '../module/AuthFile';
-import { useForm } from '../module/hooks'
+//import { AuthContext } from '../module/AuthFile';
+//import { useForm } from '../module/hooks'
 
 
 function NewPost(props){
