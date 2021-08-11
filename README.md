@@ -1,3 +1,4 @@
+<img src="./client/src/Assets/logo.png">
 # Ol' Mate
 Project Owners - Cameron Ball
 
